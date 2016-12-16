@@ -78,7 +78,7 @@ app.get('/api/projects', function(req, res){
   db.Project.find(function(err, project){
     if(err){
       console.log('error');
-      res.status(404);
+      res.status.send(404);
     }
   res.json(project);
 });
@@ -105,6 +105,23 @@ app.post('/api/projects', function(req, res){
     }
   });
   // res.json(newProj);
+});
+///updates project description must have title and description in body
+app.patch('/api/projects/', function(req, res){
+  //find project by title
+  console.log(req.body.title);
+  db.Project.findOne({title: req.body.title}, function(err, project){
+    if(err){
+      console.log('error', err);
+      res.status(500).send('error');
+    } else {
+      console.log(project);
+      project.description = req.body.description;
+      project.save();
+      res.json(project);
+    }
+  });
+
 });
 /**********
  * SERVER *
