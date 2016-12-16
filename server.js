@@ -28,7 +28,6 @@ var db = require('./models');
 
 //hardcoded profile
 
-
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
 app.use(express.static('public'));
@@ -56,7 +55,9 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Contact information about me"}, // CHANGE ME
-      {method: "POST", path: "/api/projects", description: "All projects I've included"}
+      {method: "GET", path: "/api/projects", description: "All projects I've included"},
+      {method: 'POST', path: '/api/projects', description: 'Adds a project (authentication required)'},
+      {method: 'GET', path: 'api/inspiration', description: 'routes to inspirational resources I use'}
        // CHANGE ME
     ]
   })
@@ -65,7 +66,7 @@ app.get('/api', function api_index(req, res) {
 //get profile JSON
 app.get('/api/profile', function(req, res){
   res.json({name: 'Aaron',
-  githubUserName: 'nzoLogic',
+  githubUsername: 'nzoLogic',
   githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
   personalSite : 'https://nzologic.github.io/',
   currentCity: 'San Francisco, CA',
@@ -83,13 +84,27 @@ app.get('/api/projects', function(req, res){
 });
 });
 //get project by title
-app.get('api/projects:title', function(req, res){
+app.get('/api/projects/:title', function(req, res){
   db.Project.findOne({title: req.params.title}, function(err, project){
     if(err){
       console.log(err);
     }
     res.json(project);
   });
+});
+//admin can add new projects
+app.post('/api/projects', function(req, res){
+  var newProj = new db.Project(req.body);
+  newProj.save(function(err, savedProj){
+    if(err){
+      console.log('errror');
+      res.send(err);
+    }
+    else{
+      res.json(savedProj);
+    }
+  });
+  // res.json(newProj);
 });
 /**********
  * SERVER *
