@@ -56,7 +56,8 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Contact information about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/projects", description: "All projects I've included"}
+       // CHANGE ME
     ]
   })
 });
@@ -78,19 +79,18 @@ app.get('/api/projects', function(req, res){
       console.log('error');
       res.status(404);
     }
-    console.log(project);
   res.json(project);
 });
 });
 //get project by title
 app.get('api/projects:title', function(req, res){
-  db.Project.findOne({title: req.body.title}, function(err, project){
+  db.Project.findOne({title: req.params.title}, function(err, project){
     if(err){
-      return console.log('err in find by title', err);
+      console.log(err);
     }
-  res.json(project);
-  })
-})
+    res.json(project);
+  });
+});
 /**********
  * SERVER *
  **********/

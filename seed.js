@@ -22,5 +22,6 @@ db.Project.create(new_project, function(err, project){
   }
 
   console.log("Created new project", project);
+  project.save();
   process.exit(); // we're all done! Exit the program.
 });
