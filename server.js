@@ -1,7 +1,6 @@
 // require express and other modules
 var express = require('express'),
-    app = express(),
-    db = require('/models');
+    app = express();
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -33,7 +32,7 @@ var profile = {
   githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
   personalSite : 'https://nzologic.github.io/',
   currentCity: 'San Francisco, CA',
-  pets: []
+  pets: false
 }
 
 // Serve static files from the `/public` directory:
@@ -70,7 +69,7 @@ app.get('/api', function api_index(req, res) {
 
 //get profile JSON
 app.get('/api/profile', function(req, res){
-  res.json(profile);
+
 });
 /**********
  * SERVER *
