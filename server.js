@@ -1,6 +1,7 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
+    app = express(),
+    mongoose = require('mongoose');
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -19,21 +20,14 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
  **********/
 
 //hardcoded profile
-var profile = {
-  name: 'Aaron',
-  githubUserName: 'nzoLogic',
-  githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
-  personalSite : 'https://nzologic.github.io/',
-  currentCity: 'San Francisco, CA',
-  pets: false
-}
+
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
@@ -57,8 +51,8 @@ app.get('/api', function api_index(req, res) {
   res.json({
     woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express-personal-api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentationUrl: "https://github.com/nzoLogic/express-personal-api/blob/master/README.md", // CHANGE ME
+    baseUrl: "https://steele-mongod.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Contact information about me"}, // CHANGE ME
@@ -69,8 +63,34 @@ app.get('/api', function api_index(req, res) {
 
 //get profile JSON
 app.get('/api/profile', function(req, res){
-
+  res.json({name: 'Aaron',
+  githubUserName: 'nzoLogic',
+  githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
+  personalSite : 'https://nzologic.github.io/',
+  currentCity: 'San Francisco, CA',
+  pets: false
 });
+});
+//gets all projects
+app.get('/api/projects', function(req, res){
+  db.Project.find(function(err, project){
+    if(err){
+      console.log('error');
+      res.status(404);
+    }
+    console.log(project);
+  res.json(project);
+});
+});
+//get project by title
+app.get('api/projects:title', function(req, res){
+  db.Project.findOne({title: req.body.title}, function(err, project){
+    if(err){
+      return console.log('err in find by title', err);
+    }
+  res.json(project);
+  })
+})
 /**********
  * SERVER *
  **********/
