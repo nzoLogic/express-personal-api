@@ -1,6 +1,7 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
+    app = express(),
+    db = require('/models');
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -24,6 +25,16 @@ app.use(function(req, res, next) {
 /**********
  * ROUTES *
  **********/
+
+//hardcoded profile
+var profile = {
+  name: 'Aaron',
+  githubUserName: 'nzoLogic',
+  githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
+  personalSite : 'https://nzologic.github.io/',
+  currentCity: 'San Francisco, CA',
+  pets: []
+}
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
@@ -51,12 +62,16 @@ app.get('/api', function api_index(req, res) {
     baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Contact information about me"}, // CHANGE ME
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
 });
 
+//get profile JSON
+app.get('/api/profile', function(req, res){
+  res.json(profile);
+});
 /**********
  * SERVER *
  **********/
