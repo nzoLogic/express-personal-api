@@ -7,13 +7,13 @@ $(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: '/api/profile',
-        success: handleSuccess,
+        success: handleProfile,
         error: handleError,
         dataType: 'json'
     });
 
-    function handleSuccess(data){
-      console.log(data);
+    function handleProfile(profileData){
+      $('header').append(profileHB({profile: profileData}));
     }
     function handleError(xhr, err){
       console.log('error');

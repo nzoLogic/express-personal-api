@@ -48,7 +48,7 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
+    woopsIForgotToDocumentAllMyEndpoints: false, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentationUrl: "https://github.com/nzoLogic/express-personal-api/blob/master/README.md", // CHANGE ME
     baseUrl: "https://steele-mongod.herokuapp.com/", // CHANGE ME
@@ -67,7 +67,7 @@ app.get('/api', function api_index(req, res) {
 app.get('/api/profile', function(req, res){
   res.json({name: 'Aaron',
   githubUsername: 'nzoLogic',
-  githubProfileImage: 'https://avatars3.githubusercontent.com/u/22415969?v=3&s=400',
+  githubProfileImage: 'https://avatars1.githubusercontent.com/u/22415969?v=3&u=51dca730705457fe7af713d23a5d5a5ef7c8b5d4&s=400',
   personalSite : 'https://nzologic.github.io/',
   currentCity: 'San Francisco, CA',
   pets: false
@@ -129,7 +129,7 @@ app.delete('/api/projects/:title', function(req, res){
       console.log('error on delete', err);
       res.status(500).send();
     }else {
-      res.send('deleted');
+      res.send(req.params.title + ' deleted');
     }
   });
 });
