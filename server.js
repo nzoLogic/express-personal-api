@@ -121,7 +121,17 @@ app.patch('/api/projects/', function(req, res){
       res.json(project);
     }
   });
-
+});
+//deletes a project by title paramater in body
+app.delete('/api/projects/:title', function(req, res){
+  db.Project.findOneAndRemove({title: req.params.title}, function(err, proj){
+    if(err){
+      console.log('error on delete', err);
+      res.status(500).send();
+    }else {
+      res.send('deleted');
+    }
+  });
 });
 /**********
  * SERVER *
