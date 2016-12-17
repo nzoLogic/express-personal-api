@@ -25,3 +25,5 @@
     -admin only, updates and adds a new project to Project collection
   -PATCH(/api/projects/:title)
     -updates a project by title using form data. Form keys should be consistent with Projects data Structures
+  -DELETE(/api/projects/:title)
+    -deletes a project by title
