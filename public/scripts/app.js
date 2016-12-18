@@ -20,14 +20,15 @@ $(document).ready(function() {
       error: handleError,
       dataType: 'json'
     });
-    $.ajax({
-      method: 'GET',
-      url: 'http://api.forismatic.com/api/1.0/',
-      success: handleInspiration,
-      error: handleError,
-      dataType: 'json',
-      headers: 'Access-Control-Allow-Origin'
-    });
+    // $.ajax({
+    //   method: 'GET',
+    //   crossDomain: true,
+    //   url: 'http://api.forismatic.com/api/1.0/',
+    //   success: handleInspiration,
+    //   error: handleError,
+    //   dataType: 'jsonp',
+    //
+    // });
 
       /*********
       event listeners
@@ -36,11 +37,11 @@ $(document).ready(function() {
 
     function handleProfile(profileData){
       profileInfo = profileData;
+      console.log(profileInfo);
       $('header').append(profileHB({profile: profileData}));
     }
     function handleProjects(allProjects){
       projects = allProjects;
-      console.log(projects);
     }
     function handleError(xhr, err){
       console.log('error', xhr, err);

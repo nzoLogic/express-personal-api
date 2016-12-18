@@ -23,7 +23,7 @@
 
 <body class='fluid-container'>
   <div class='row'>
-    <header class=''></header>
+    <header></header>
 
     <main>
       <nav>
@@ -37,7 +37,9 @@
     <!-- profile -->
     <script id='profile-location' type='text/x-handlebars-template'>
         <h1 class='name col-xs-6'>{{profile.name}}<span>:</span><img class='prof-pic' src={{profile.githubProfileImage}} alt='profile pic'></h1>
+      
     </script>
+
     <!-- projects -->
     <script id='projects-location' type="text/x-handlebars-template">
       <h3 class="title"><a href={{project.link}} alt={{project.title}}>{{project.title}}</a></h3><h4>{{project.description}}</h4>
