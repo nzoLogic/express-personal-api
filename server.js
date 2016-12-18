@@ -91,18 +91,12 @@ app.get('/api/profile', function(req, res) {
         personalSiteLink: 'https://nzologic.github.io/',
         currentCity: 'San Francisco, CA',
         pets: false,
-        quotes: [{
-            quote: "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time.",
-            author: 'Steve Jobs'
-        },
-      {
-        quote: "No work or love will flourish out of guilt, fear, or hollowness of heart, just as no valid plans for the future can be made by those who have no capacity for living now.",
-        author: 'Alan Watts'
-      },
-    {
-      quote: "Every human has four endowments - self awareness, conscience, independent will and creative imagination. These give us the ultimate human freedom... The power to choose, to respond, to change.",
-      author: 'Stephen Covey'
-    }]
+        quotes: ["My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time. -Steve Jobs",
+
+            "No work or love will flourish out of guilt, fear, or hollowness of heart, just as no valid plans for the future can be made by those who have no capacity for living now. -Alan Watts",
+
+            "Every human has four endowments - self awareness, conscience, independent will and creative imagination. These give us the ultimate human freedom... The power to choose, to respond, to change. -Stephen Covey",
+        ]
     });
 });
 //gets all projects
@@ -129,6 +123,7 @@ app.get('/api/projects/:title', function(req, res) {
 //admin can add new projects
 app.post('/api/projects', function(req, res) {
     var newProj = new db.Project(req.body);
+    console.log(req.body);
     newProj.save(function(err, savedProj) {
         if (err) {
             console.log('errror');

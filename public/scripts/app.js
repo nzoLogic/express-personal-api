@@ -20,20 +20,21 @@ $(document).ready(function() {
       error: handleError,
       dataType: 'json'
     });
-    // $.ajax({
-    //   method: 'GET',
-    //   crossDomain: true,
-    //   url: 'http://api.forismatic.com/api/1.0/',
-    //   success: handleInspiration,
-    //   error: handleError,
-    //   dataType: 'jsonp',
-    //
-    // });
 
       /*********
       event listeners
         *********/
     $('.projects-btn').click(showProj);
+    $('.add-project').submit(function(event){
+      event.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: '/api/projects',
+        success: addedProject,
+        error: handleError,
+        data: $(this).serializeArray()
+      });
+    });
 
     function handleProfile(profileData){
       profileInfo = profileData;
@@ -55,5 +56,8 @@ $(document).ready(function() {
       projects.forEach(function(foundProject){
         $('main').append(projectsHB({project: foundProject}));
       });
+    }
+    function addedProject(proj){
+      console.log(proj);
     }
 });
