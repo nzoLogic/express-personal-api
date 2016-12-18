@@ -1,8 +1,13 @@
+/***********
+header style
+************/
 
 header {
-  background-color: rgba(7, 15, 18, 0.92);
+  background-color: rgb(7, 15, 18);
   color: #2F4D58;
   position: absolute;
+  left: 0;
+  top: 0;
   width: 50%;
   height: 100%;
 }
@@ -14,9 +19,47 @@ header {
 }
 span {
   color: #2F4D58;
-
 }
 .prof-pic {
   width: 35px;
   height: 35px;
+}
+
+/************
+nav styling
+*************/
+nav {
+  /*position: fixed;
+  width: 50%;
+  top: 0;
+  right: 0;
+  z-index: 1;*/
+}
+
+button {
+  width: 100%;
+  font-size: 24px;
+  font-weight:  bolder;
+  background-color: rgba(5, 25, 33, 0.75);
+  border: none;
+}
+
+
+/************
+main styling
+*************/
+main{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(65, 16, 44);
+}
+
+/***************
+project content
+**************/
+.project-description {
+  background-color: rgba(26, 28, 29, 0.86);
 }

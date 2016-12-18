@@ -9,7 +9,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // allow cross origin requests (optional)
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+//https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS//
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -48,17 +49,16 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: false, // CHANGE ME ;)
+    woopsIForgotToDocumentAllMyEndpoints: false,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/nzoLogic/express-personal-api/blob/master/README.md", // CHANGE ME
-    baseUrl: "https://steele-mongod.herokuapp.com/", // CHANGE ME
+    documentationUrl: "https://github.com/nzoLogic/express-personal-api/blob/master/README.md",
+    baseUrl: "https://steele-mongod.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Contact information about me"}, // CHANGE ME
       {method: "GET", path: "/api/projects", description: "All projects I've included"},
       {method: 'POST', path: '/api/projects', description: 'Adds a project (authentication required)'},
       {method: 'GET', path: 'api/inspiration', description: 'routes to inspirational resources I use'}
-       // CHANGE ME
     ]
   })
 });

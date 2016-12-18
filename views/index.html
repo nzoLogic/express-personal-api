@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,14 +19,30 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
-  </head>
-  <body class='fluid-container'>
-    <header class='row'>
+</head>
 
-    </header>
+<body class='fluid-container'>
+  <div class='row'>
+    <header class=''></header>
+
+    <main>
+      <nav>
+          <button class='projects-btn'>Projects</button>
+      </nav>
+      <section class='project-description'>
+      </section>
+    </main>
+  </div>
+
+    <!-- profile -->
     <script id='profile-location' type='text/x-handlebars-template'>
-      <h1 class='name col-xs-6'>{{profile.name}}<span>:</span><img class='prof-pic' src={{profile.githubProfileImage}} alt='profile pic'></h1>
+        <h1 class='name col-xs-6'>{{profile.name}}<span>:</span><img class='prof-pic' src={{profile.githubProfileImage}} alt='profile pic'></h1>
+    </script>
+    <!-- projects -->
+    <script id='projects-location' type="text/x-handlebars-template">
+      <h3 class="title"><a href={{project.link}} alt={{project.title}}>{{project.title}}</a></h3><h4>{{project.description}}</h4>
 
     </script>
-  </body>
+</body>
+
 </html>
