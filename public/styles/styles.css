@@ -40,8 +40,14 @@ button {
   width: 100%;
   font-size: 24px;
   font-weight:  bolder;
-  background-color: rgba(5, 25, 33, 0.75);
+  background-image: linear-gradient(to bottom, rgb(162, 10, 51), rgb(131, 8, 41));
+  background-repeat: repeat-x;
   border: none;
+  color: #fff;
+  border-radius: 10px;
+}
+buttn:hover {
+  
 }
 
 
