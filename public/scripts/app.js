@@ -58,7 +58,7 @@ $(document).ready(function() {
     $('.inspiration').click(function(){
       setTimeout(function(){
         $('.inspiration-station').toggleClass('full-width');
-      }, 2000);
+      }, 5000);
       $('.inspiration-station').toggleClass('full-width');
     });
 
