@@ -25,71 +25,117 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 
 <body class='fluid-container'>
-    <div class='row'>
-        <header></header>
-        <section class='profile'></section>
-        <main>
-            <nav>
-                <button class='projects-btn'>Projects</button>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addProj">Add Project</button>
-            </nav>
-            <!-- Button trigger modal -->
+    <main class='parallax home'>
+        <nav>
+            <div class="btn-group">
+                <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Projects<span class="caret"></span>
+  </button>
+                <ul class="dropdown-menu">
+                    <!-- Button trigger modal -->
+                    <li><button type="button" class="project" data-toggle="modal" data-target="#addProj">Add Project</button></li>
+                    <li><button class="projects-btn project">List Projects</button></li>
+                    <!-- Button trigger modal -->
+                    <li><button class="project" data-toggle="modal" data-target="#deleteProj">Delete Project</button></li>
+                </ul>
+                <button class="profile-button">Profile</profile>
+            <button class='inspiration'>Inspiration</button>
 
+            </div>
+        </nav>
+        <section class='full-profile'>
+        </section>
+        <aside class='project-display'>
+          <span class='x'>&times</span>
+        </aside>
+        <aside class='inspiration-station'>
+        </aside>
+    </main>
 
-            <!-- Add Project Modal -->
-            <div class="modal fade" id="addProj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">New Project</h4>
+    <!-- Add Project Modal -->
+    <section class="modal fade" id="addProj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New Project</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal add-project">
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-offset-3">
+                                <input type="text" class="form-control" name="title" placeholder="Title">
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal add-project">
-                                <div class="form-group">
-                                    <div class="col-sm-6 col-xs-offset-3">
-                                        <input type="text" class="form-control" name="title" placeholder="Title">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-6 col-xs-offset-3">
-                                        <input type="text" class="form-control" name="author" placeholder="Author">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-6 col-xs-offset-3">
-                                        <input type="text" class="form-control" name="description" placeholder="Description">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-6 col-xs-offset-3">
-                                        <input type="text" class="form-control" name="link" placeholder="Link">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-6">
-                                        <button type="submit" class="btn btn-default">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-offset-3">
+                                <input type="text" class="form-control" name="author" placeholder="Author">
+                            </div>
                         </div>
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
-                        </div> -->
-                    </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-offset-3">
+                                <input type="text" class="form-control" name="description" placeholder="Description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-offset-3">
+                                <input type="text" class="form-control" name="link" placeholder="Link">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="alert alert-success" role="alert"></div>
                 </div>
             </div>
+        </div>
+    </section>
 
-        </main>
-    </div>
+<!-- Delete Project Modal -->
+    <section class="modal fade" id="deleteProj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete Project</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal delete-project">
+                        <div class="form-group">
+                            <div class="col-sm-6 col-xs-offset-3">
+                                <input type="text" class="form-control" name="title" placeholder="Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Handlebars Script -->
 
     <!-- profile -->
     <script id='profile-location' type='text/x-handlebars-template'>
-        <h1 class='name col-xs-6'>{{profile.name}}<span>:</span><img class='prof-pic' src={{profile.githubProfileImage}} alt='profile pic'></h1>
+        <div class="row">
+            <h1 class='name first-name col-xs-1 col-xs-offset-4'>{{profile.name}}</h1>
+        </div>
+        <div class="row">
+            <h1 class='name last-name col-xs-1 col-xs-offset-5'>{{profile.lastName}}</h1>
+        </div>
+        <img class='prof-pic' src={{profile.githubProfileImage}} alt='profile pic'>
     </script>
 
     <!-- projects -->
@@ -98,13 +144,15 @@
         <h4>{{project.description}}</h4>
 
     </script>
-
-
-    <section class='project-description'>
-    </section>
-
-
-    </form>
+    <script id="fullProfile" type="text/x-handlebars-template">
+        <div class="row">
+            <h1 class="col-xs-12 city name">{{profile.currentCity}}</h1>
+            <h3>Github: {{profile.githubUsername}}
+            <a class='link' href={{profile.personalSiteLink}} alt="personal profile">Personal Profile</a>
+    </script>
+    <script id="inspirationSection" type="text/x-handlebars-template">
+      <p class='missile'>{{quote}}</p>
+    </script>
 </body>
 
 </html>

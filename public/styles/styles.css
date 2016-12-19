@@ -1,71 +1,150 @@
+body, html {
+  background-color: #051921;
+  height: 100%;
+  transition: 1s;
+}
+.parallax {
+  height: 100%;
+  background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin: 0;
+   text-align: center;
+}
 /***********
-header style
+header/nav style
 ************/
 
-header {
-  background-color: rgb(7, 15, 18);
-  color: #2F4D58;
+nav {
   position: absolute;
-  left: 0;
+  z-index: 1;
   top: 0;
-  width: 50%;
-  height: 100%;
+  left: 40%;
+}
+nav a {
+  font-size: 22px;
+  color: #713A59;
+  margin: auto 8px;
+  transition: .5s;
 }
 .name {
-  font-weight: bolder;
-  font-size: 48px;
-  margin-left: 2%;
-  color: #41102C;
+  font-size: 78px;
+  text-shadow: 3px 8px #000;
+  font-family: 'Pacifico', cursive;
+  color: #E0BE00;
+  z-index: 1;
 }
-span {
-  color: #2F4D58;
+.first-name {
+  margin-top: 20%;
 }
 .prof-pic {
-  width: 35px;
-  height: 35px;
+  position: absolute;
+  top: 35%;
+  left: 40%;
+}
+.home {
+  background-color: #009070;
 }
 
-/************
-nav styling
-*************/
-nav {
-  /*position: fixed;
-  width: 50%;
-  top: 0;
-  right: 0;
-  z-index: 1;*/
-}
 
 button {
-  width: 100%;
   font-size: 24px;
   font-weight:  bolder;
-  background-image: linear-gradient(to bottom, rgb(162, 10, 51), rgb(131, 8, 41));
-  background-repeat: repeat-x;
-  border: none;
   color: #fff;
-  border-radius: 10px;
-}
-buttn:hover {
-  
-}
+  border-radius: 5px;
+  border: 1px solid #B202C4;
+  background: transparent;
+  transition: .5s;
 
-
+}
+button:hover {
+  color: rgb(255, 217, 0);
+  background-color: #4A0052;
+  text-shadow: 1px #000;
+  box-shadow: 1px 1px #000;
+}
 /************
-main styling
+full profile style
 *************/
-main{
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50%;
+.full-profile {
+  background-color: #850193;
+  position: fixed;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  transition: 1s;
+}
+.add-height {
+  height: 25%;
+}
+.city {
+  font-size: 48px;
+  color: #00503E;
+  text-shadow: 2px 4px #000;
+}
+.link {
+  font-size: 28px;
+  color: #E0BE00;
+}
+/***********
+project/ project section styling
+**************/
+.project-display{
   height: 100%;
-  background-color: rgb(65, 16, 44);
+  width: 0;
+  position: fixed;
+  right: 0;
+  transition: 1s;
+  background-color: rgba(255,255,255,.74);
+}
+.x {
+  font-size: 18px;
+  position: absolute;
+  left: 2%;
+  font-weight: bold;
+}
+.x:hover {
+  cursor: alias;
+}
+.quarter-width {
+  width: 25%;
+}
+.project {
+  font-size: 18px;
+  color: #666;
+  border: none;
+  width: 100%;
+  border-radius: 0;
+}
+.project:hover {
+  background-color: transparent;
 }
 
-/***************
-project content
+/**************
+inspiration styling
 **************/
-.project-description {
-  background-color: rgba(26, 28, 29, 0.86);
+.inspiration-station {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  /*background-color: rgba(0,0,0,.95);*/
+  width: 0;
+  z-index: 2;
+  transition: .5s;
+}
+.full-width {
+  width: 100%;
+}
+.right-away {
+  right: 0;
+  width: 0;
+}
+.missile {
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 25%;
+  /*transition: 5s;*/
 }

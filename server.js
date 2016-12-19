@@ -85,6 +85,7 @@ app.get('/api', function api_index(req, res) {
 app.get('/api/profile', function(req, res) {
     res.json({
         name: 'Aaron',
+        lastName: 'Steele',
         githubUsername: 'nzoLogic',
         githubLink: 'https://www.github.com/nzoLogic',
         githubProfileImage: 'https://avatars1.githubusercontent.com/u/22415969?v=3&u=51dca730705457fe7af713d23a5d5a5ef7c8b5d4&s=400',
