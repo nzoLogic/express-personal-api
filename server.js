@@ -68,14 +68,25 @@ app.get('/api', function api_index(req, res) {
                 method: "GET",
                 path: "/api/projects",
                 description: "All projects I've included"
+            },
+            {
+                method: "GET",
+                path: "/api/projects/:title",
+                description: "Returns project by title"
             }, {
                 method: 'POST',
                 path: '/api/projects',
-                description: 'Adds a project (authentication required)'
-            }, {
-                method: 'GET',
-                path: 'api/inspiration',
-                description: 'routes to inspirational resources I use'
+                description: 'Adds a project'
+            },
+            {
+              method: 'PATCH',
+              path: '/api/projects',
+              description: 'Updates a description by title'
+            },
+            {
+              method: 'DELETE',
+              path: '/api/projects/:title',
+              description: 'deletes a project by title as paramater'
             }
         ]
     })
